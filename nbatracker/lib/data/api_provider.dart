@@ -13,11 +13,18 @@ class ApiProvider {
   );
 
   Future<List<dynamic>> playersRequests() async {
-    List<dynamic> playersResult;
+    List<dynamic> playersResult = [];
+    Response response;
+    int page = 1;
     try {
-      Response response = await _dio.get('players');
+      do {
+        response = await _dio.get('players?per_page=100&page=${page++}');
+        print("it works");
+        playersResult = playersResult..addAll(response.data['data']);
+      } while (response.data['meta']['current_page'] <
+          response.data['meta']['total_pages']);
 
-      playersResult = response.data['result'];
+      print("hello");
 
       return playersResult;
     } on DioError catch (e) {
@@ -43,7 +50,7 @@ class ApiProvider {
     try {
       Response response = await _dio.get('teams');
 
-      teamsResult = response.data['result'];
+      teamsResult = response.data['data'];
 
       return teamsResult;
     } on DioError catch (e) {
@@ -61,7 +68,6 @@ class ApiProvider {
     } catch (e) {
       rethrow;
     }
-    //print(membersResult);
   }
 }
 

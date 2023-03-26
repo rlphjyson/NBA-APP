@@ -12,7 +12,7 @@ class TeamsRepository {
 
       return teamsResult.map((e) => NbaTeamsModel.fromJson(e)).toList();
     } catch (e) {
-      throw Exception("Failed to load abandoned carts, ${e.toString()}");
+      throw Exception("Failed to load Teams, ${e.toString()}");
     }
   }
 }
@@ -26,7 +26,7 @@ class PlayersRepository {
 
       return playersResult.map((e) => NbaPlayersModel.fromJson(e)).toList();
     } catch (e) {
-      throw Exception("Failed to load abandoned carts, ${e.toString()}");
+      throw Exception("Failed to load Players, ${e.toString()}");
     }
   }
 }
