@@ -27,29 +27,33 @@ class _SearchWidgetState extends State<SearchWidget> {
 
     return Container(
       height: 42,
+      width: MediaQuery.of(context).size.width * 0.7,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.white,
         border: Border.all(color: Colors.black26),
       ),
-      child: TextField(
-        controller: controller,
-        decoration: InputDecoration(
-          suffixIcon: widget.text.isNotEmpty
-              ? GestureDetector(
-                  child: Icon(Icons.close, color: style.color),
-                  onTap: () {
-                    controller.clear();
-                    widget.onChanged('');
-                    FocusScope.of(context).requestFocus(FocusNode());
-                  },
-                )
-              : null,
-          hintText: widget.hintText,
-          hintStyle: style,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextField(
+          controller: controller,
+          decoration: InputDecoration(
+            suffixIcon: widget.text.isNotEmpty
+                ? GestureDetector(
+                    child: Icon(Icons.close, color: style.color),
+                    onTap: () {
+                      controller.clear();
+                      widget.onChanged('');
+                      FocusScope.of(context).requestFocus(FocusNode());
+                    },
+                  )
+                : null,
+            hintText: widget.hintText,
+            hintStyle: style,
+          ),
+          style: style,
+          onChanged: widget.onChanged,
         ),
-        style: style,
-        onChanged: widget.onChanged,
       ),
     );
   }
