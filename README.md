@@ -1,8 +1,11 @@
 # Theoria-exam
 
-Project Name: NBA Tracker
-Description: This is an application where you can see details from All NBA players and NBA teams provided by https://www.balldontlie.io API 
+Project Name: NBA Tracker <br />
+Description: Since I loved to watch NBA and always tuned in to every games, I made an application to see player details and team details. <br />
+This is an application where you can see details from All NBA players and NBA teams provided by https://www.balldontlie.io API  <br />
 
+Disclaimer: Player Screen does take a long time to load because I get all 5000 players from the API whice takes about 52 request before it completes the list of players.
+The API also doesnt provide images for players and teams, but for the teams, Since there's only 30 nba teams, I provided an image for every team. <br />
 
 API: 
 get players: https://www.balldontlie.io/api/v1/players
