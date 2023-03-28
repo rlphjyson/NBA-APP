@@ -17,16 +17,16 @@ class ApiProvider {
     Response response;
     int page = 1;
     try {
-      response = await _dio.get('players');
-      playersResult = playersResult..addAll(response.data['data']);
-      // do {
-      //   print("it works");
-      //   playersResult = playersResult..addAll(response.data['data']);
-      // } while (response.data['meta']['current_page'] <
-      //     response.data['meta']['total_pages']);
-
-      // print("hello");
-
+      // get all players from API
+      do {
+        response = await _dio.get('players?per_page=100&page=${page++}');
+        print("it works");
+        playersResult = playersResult..addAll(response.data['data']);
+      } while (response.data['meta']['current_page'] <
+          response.data['meta']['total_pages']);
+      //get first page of players from API
+      // response = await _dio.get('players');
+      // playersResult = playersResult..addAll(response.data['data']);
       return playersResult;
     } on DioError catch (e) {
       if (e.response != null) {

@@ -92,7 +92,10 @@ class _PlayerScreenState extends State<PlayerScreen> {
     final searchLower = query.toLowerCase();
     searchedList = [];
     for (var i = 0; i < playersList.length; i++) {
-      if (playersList[i].firstName!.toLowerCase().contains(searchLower)) {
+      if (playersList[i].firstName!.toLowerCase().contains(searchLower) ||
+          playersList[i].lastName!.toLowerCase().contains(searchLower) ||
+          ('${playersList[i].firstName!.toLowerCase()} ${playersList[i].lastName!.toLowerCase()}')
+              .contains(searchLower)) {
         searchedList.add(playersList[i]);
       }
     }
