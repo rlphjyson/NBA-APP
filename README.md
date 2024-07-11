@@ -1,4 +1,4 @@
-# Theoria-exam
+## Theoria-exam
 
 Project Name: NBA Tracker <br />
 Description: Since I loved to watch NBA and always tuned in to every games, I made an application to see player details and team details. <br />
