@@ -8,7 +8,7 @@ Disclaimer: Player Screen does take a long time to load because I get all 5000 p
 The API also doesnt provide images for players and teams, but for the teams, Since there's only 30 nba teams, I provided an image for every team. <br />
 
 API: 
-get players: https://www.balldontlie.io/api/v1/players
+get players: https://www.balldontlie.io/api/v1/players 
 
 get teams: https://www.balldontlie.io/api/v1/teams
 #
